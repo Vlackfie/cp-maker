@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MU Cover Page Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="no-print">
+        <div class="form-container">
+            <h1>Cover Page Maker</h1>
+            <div class="input-grid">
+                <input type="text" id="in-course" placeholder="Course Title" oninput="updatePreview()">
+                <input type="text" id="in-code" placeholder="Course Code" oninput="updatePreview()">
+                <input type="text" id="in-prof-name" placeholder="Professor Name" oninput="updatePreview()">
+                <input type="text" id="in-prof-desig" placeholder="Designation" oninput="updatePreview()">
+                <input type="text" id="in-prof-dept" placeholder="Professor's Department" oninput="updatePreview()">
+                <input type="text" id="in-student-name" placeholder="Your Name" oninput="updatePreview()">
+                <input type="text" id="in-student-id" placeholder="Student ID" oninput="updatePreview()">
+                <input type="date" id="in-date" oninput="updatePreview()">
+            </div>
+            <button onclick="window.print()" class="print-btn">Print or Save as PDF</button>
+        </div>
+    </div>
+
+    <!-- Cover Page Template -->
+    <div id="cover-template" class="pdf-page">
+        <div class="logo-wrapper">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/MU_Logo.svg/960px-MU_Logo.svg.png" alt="Metropolitan University Logo">
+        </div>
+
+        <h2 class="assignment-heading">Assignment</h2>
+
+        <div class="content-body">
+            <p class="course-line"><strong>Course Title:</strong> <span id="out-course">Industrial Management & Financial Accounting</span></p>
+            <p class="course-line"><strong>Course Code:</strong> <span id="out-code">GED-215</span></p>
+
+            <div class="section-box">
+                <h3 class="sub-label">Submitted to:</h3>
+                <p class="bold-text">Name: <span id="out-prof-name">Faculty Name</span></p>
+                <p id="out-prof-desig">Designation</p>
+                <p id="out-prof-dept">Name of the Department</p>
+                <p>Metropolitan University</p>
+                <p>Sylhet, Bangladesh.</p>
+            </div>
+
+            <div class="section-box">
+                <h3 class="sub-label">Submitted by:</h3>
+                <p class="bold-text">Name: <span id="out-student-name">Sadikul Hossain</span></p>
+                <p class="bold-text">ID: <span id="out-student-id">242-115-079</span></p>
+                <p>Batch: 61<sup>st</sup></p>
+                <p>Department of Computer Science and Engineering</p>
+                <p>Metropolitan University</p>
+                <p>Sylhet, Bangladesh.</p>
+            </div>
+        </div>
+
+        <div class="date-footer">
+            Date of Submission: <span id="out-date"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
