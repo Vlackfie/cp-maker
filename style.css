@@ -27,10 +27,10 @@ input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14
 .assignment-heading { font-size: 28pt; font-weight: bold; margin: 40px 0; }
 
 .content-body { width: 100%; text-align: center; }
-.course-line { font-size: 16pt; margin: 5px 0; }
+.course-line { font-size: 16pt; margin: 2px 0; }
 
-.section-box { margin-top: 40px; line-height: 1.5; }
-.sub-label { font-size: 18pt; text-decoration: underline; margin-bottom: 10px; }
+.section-box { margin-top: 40px; line-height: 1; }
+.sub-label { font-size: 18pt; text-decoration: underline; margin-bottom: 5px; }
 .bold-text { font-size: 16pt; font-weight: bold; margin: 5px 0; }
 
 .date-footer { margin-top: auto; font-size: 16pt; font-weight: bold; width: 100%; text-align: center; }
