@@ -30,10 +30,10 @@ input { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14
 .course-line { font-size: 16pt; margin: 2px 0; }
 
 .section-box { margin-top: 40px; line-height: 1; }
-.sub-label { font-size: 18pt; text-decoration: underline; margin-bottom: 5px; }
+.sub-label { font-size: 16pt; text-decoration: underline; margin-bottom: 5px; }
 .bold-text { font-size: 16pt; font-weight: bold; margin: 5px 0; }
 
-.date-footer { margin-top: auto; font-size: 16pt; font-weight: bold; width: 100%; text-align: center; }
+.date-footer { margin-top: auto; font-size: 14pt; font-weight: bold; width: 100%; text-align: center; }
 
 /* Print Logic: Keeps it to ONE page */
 @media print {
