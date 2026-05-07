@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MU Cover Page Maker</title>
+    <title>MU Automated Cover Page Maker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="no-print">
         <div class="form-container">
-            <h1>Cover Page Maker</h1>
+            <h1>Automated Cover Page Maker</h1>
             
             <div class="form-grid">
-                <div class="section-label">Course Details</div>
-                <select id="in-course" onchange="autoFillCourse()">
-                    <option value="">Select Course Title</option>
-                    <option value="Industrial Management & Financial Accounting">Industrial Management & Financial Accounting</option>
-                    <option value="Data Structures">Data Structures</option>
-                    <option value="Database Management Systems">Database Management Systems</option>
-                </select>
-                <input type="text" id="in-code" placeholder="Course Code" readonly>
-
-                <div class="section-label">Submitted To (Professor)</div>
-                <select id="in-prof-name" onchange="autoFillProfessor()">
+                <div class="section-label">1. Select Professor</div>
+                <select id="in-prof-name" onchange="autoFillAll()">
                     <option value="">Select Professor</option>
                     <option value="Dr. Rezaul Haque">Dr. Rezaul Haque</option>
                     <option value="Prof. Md. Anwar Hussain">Prof. Md. Anwar Hussain</option>
-                    <option value="Ms. Fatema Tuj Johora">Ms. Fatema Tuj Johora</option>
                 </select>
+
+                <div class="section-label">2. Assignment Title (Optional)</div>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="check-title" onchange="toggleTitleInput()">
+                    <label for="check-title">Add Specific Title?</label>
+                </div>
+                <input type="text" id="in-assign-title" placeholder="e.g. Impact of AI on Business" oninput="updatePreview()" style="display: none;">
+
+                <div class="section-label">3. Auto-filled Details</div>
+                <input type="text" id="in-course" placeholder="Course Title" readonly>
+                <input type="text" id="in-code" placeholder="Course Code" readonly>
                 <input type="text" id="in-prof-desig" placeholder="Designation" readonly>
                 <input type="text" id="in-prof-dept" placeholder="Department" readonly>
 
-                <div class="section-label">Submitted By (Student)</div>
+                <div class="section-label">4. Student Details</div>
                 <input type="text" id="in-student-name" placeholder="Your Name" oninput="updatePreview()">
                 <input type="text" id="in-student-id" placeholder="Student ID" oninput="updatePreview()">
                 <input type="date" id="in-date" oninput="updatePreview()">
@@ -44,10 +45,13 @@
 
     <div id="cover-template" class="pdf-page">
         <div class="logo-wrapper">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/MU_Logo.svg/960px-MU_Logo.svg.png" alt="Metropolitan University Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/MU_Logo.svg/960px-MU_Logo.svg.png" alt="MU Logo">
         </div>
 
-        <h2 class="main-title">Assignment</h2>
+        <div class="title-group">
+            <h2 class="main-title">Assignment</h2>
+            <h3 id="out-assign-title" class="sub-assignment-title"></h3>
+        </div>
 
         <div class="content-body">
             <div class="course-section">
@@ -61,7 +65,6 @@
                 <p id="out-prof-desig">...</p>
                 <p id="out-prof-dept">...</p>
                 <p>Metropolitan University</p>
-                <p>Sylhet, Bangladesh.</p>
             </div>
 
             <div class="info-block">
