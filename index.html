@@ -11,54 +11,71 @@
     <div class="no-print">
         <div class="form-container">
             <h1>Cover Page Maker</h1>
-            <div class="input-grid">
-                <input type="text" id="in-course" placeholder="Course Title" oninput="updatePreview()">
-                <input type="text" id="in-code" placeholder="Course Code" oninput="updatePreview()">
-                <input type="text" id="in-prof-name" placeholder="Professor Name" oninput="updatePreview()">
-                <input type="text" id="in-prof-desig" placeholder="Designation" oninput="updatePreview()">
-                <input type="text" id="in-prof-dept" placeholder="Professor's Department" oninput="updatePreview()">
+            
+            <div class="form-grid">
+                <div class="section-label">Course Details</div>
+                <select id="in-course" onchange="autoFillCourse()">
+                    <option value="">Select Course Title</option>
+                    <option value="Industrial Management & Financial Accounting">Industrial Management & Financial Accounting</option>
+                    <option value="Data Structures">Data Structures</option>
+                    <option value="Database Management Systems">Database Management Systems</option>
+                </select>
+                <input type="text" id="in-code" placeholder="Course Code" readonly>
+
+                <div class="section-label">Submitted To (Professor)</div>
+                <select id="in-prof-name" onchange="autoFillProfessor()">
+                    <option value="">Select Professor</option>
+                    <option value="Dr. Rezaul Haque">Dr. Rezaul Haque</option>
+                    <option value="Prof. Md. Anwar Hussain">Prof. Md. Anwar Hussain</option>
+                    <option value="Ms. Fatema Tuj Johora">Ms. Fatema Tuj Johora</option>
+                </select>
+                <input type="text" id="in-prof-desig" placeholder="Designation" readonly>
+                <input type="text" id="in-prof-dept" placeholder="Department" readonly>
+
+                <div class="section-label">Submitted By (Student)</div>
                 <input type="text" id="in-student-name" placeholder="Your Name" oninput="updatePreview()">
                 <input type="text" id="in-student-id" placeholder="Student ID" oninput="updatePreview()">
                 <input type="date" id="in-date" oninput="updatePreview()">
             </div>
-            <button onclick="window.print()" class="print-btn">Print or Save as PDF</button>
+            
+            <button onclick="window.print()" class="print-btn">Print / Save as PDF</button>
         </div>
     </div>
 
-    <!-- Cover Page Template -->
     <div id="cover-template" class="pdf-page">
         <div class="logo-wrapper">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/MU_Logo.svg/960px-MU_Logo.svg.png" alt="Metropolitan University Logo">
         </div>
 
-        <h2 class="assignment-heading">Assignment</h2>
+        <h2 class="main-title">Assignment</h2>
 
         <div class="content-body">
-            <p class="course-line"><strong>Course Title:</strong> <span id="out-course">Course Title</span></p>
-            <p class="course-line"><strong>Course Code:</strong> <span id="out-code">Course Code</span></p>
+            <div class="course-section">
+                <p><strong>Course Title:</strong> <span id="out-course">...</span></p>
+                <p><strong>Course Code:</strong> <span id="out-code">...</span></p>
+            </div>
 
-            <div class="section-box">
+            <div class="info-block">
                 <h3 class="sub-label">Submitted to:</h3>
-                <p class="bold-text">Name: <span id="out-prof-name">Faculty Name</span></p>
-                <p id="out-prof-desig">Designation</p>
-                <p id="out-prof-dept">Name of the Department</p>
+                <p class="bold-text">Name: <span id="out-prof-name">...</span></p>
+                <p id="out-prof-desig">...</p>
+                <p id="out-prof-dept">...</p>
                 <p>Metropolitan University</p>
                 <p>Sylhet, Bangladesh.</p>
             </div>
 
-            <div class="section-box">
+            <div class="info-block">
                 <h3 class="sub-label">Submitted by:</h3>
-                <p class="bold-text">Name: <span id="out-student-name">Sadikul Hossain</span></p>
-                <p class="bold-text">ID: <span id="out-student-id">242-115-079</span></p>
-                  <p>Section: B <sup>st</sup></p>
+                <p class="bold-text">Name: <span id="out-student-name">...</span></p>
+                <p class="bold-text">ID: <span id="out-student-id">...</span></p>
                 <p>Batch: 61<sup>st</sup></p>
                 <p>Department of Computer Science and Engineering</p>
                 <p>Metropolitan University</p>
-                <p>Sylhet, Bangladesh.</p>
             </div>
-        </div>
-        <div class="date-footer">
-            Date of Submission: <span id="out-date"></span>
+
+            <div class="date-section">
+                <p><strong>Date of Submission:</strong> <span id="out-date"></span></p>
+            </div>
         </div>
     </div>
 
