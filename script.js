@@ -1,20 +1,42 @@
-// Database
 const masterData = {
-    "Dr. Rezaul Haque": {
-        course: "Industrial Management & Financial Accounting",
-        code: "GED-215",
-        desig: "Assistant Professor",
-        dept: "Department of Business Administration"
+    "Abu Jafar Md Jakaria": {
+        course: "Compitive Programming Lab",
+        code: "CSE 200",
+        desig: "Senior Lecturer",
+        dept: "Department Of Computer Science and Engineering"
     },
-    "Prof. Md. Anwar Hussain": {
-        course: "Data Structures",
-        code: "CSE-211",
-        desig: "Professor",
-        dept: "Department of Computer Science and Engineering"
+    "Samia Rahman Rima (DBMS)": {
+        course: "Database Management System",
+        code: "CSE 223",
+        desig: "Lecturer",
+        dept: "Department Of Computer Science and Engineering"
+    },
+    "Samia Rahman Rima (DBMS Lab)": {
+        course: "Database Management System Lab",
+        code: "CSE 224",
+        desig: "Lecturer",
+        dept: "Department Of Computer Science and Engineering"
+    },
+    "Sadman Sakib (Microprocessor)": {
+        course: "Microprocessor & Interfacing",
+        code: "CSE 237",
+        desig: "Lecturer",
+        dept: "Department of Electrical & Electronic Engineering"
+    },
+    "Sadman Sakib (Microprocessor Lab)": {
+        course: "Microprocessor & Interfacing Lab",
+        code: "CSE 238",
+        desig: "Lecturer",
+        dept: "Department of Electrical & Electronic Engineering"
+    },
+    "Farhana Akter": {
+        course: "Geometry & Vector Analysis",
+        code: "MAT 216",
+        desig: "Lecturer",
+        dept: "Department Of Computer Science and Engineering"
     }
 };
 
-// Shows or Hides the specific assignment title input
 function toggleTitleInput() {
     const isChecked = document.getElementById('check-title').checked;
     const inputField = document.getElementById('in-assign-title');
@@ -30,8 +52,8 @@ function toggleTitleInput() {
 }
 
 function autoFillAll() {
-    const profName = document.getElementById('in-prof-name').value;
-    const data = masterData[profName];
+    const profKey = document.getElementById('in-prof-name').value;
+    const data = masterData[profKey];
 
     if (data) {
         document.getElementById('in-course').value = data.course;
@@ -52,15 +74,18 @@ function formatDate(dateString) {
 
 function updatePreview() {
     const mapping = {
+        'in-doc-type': 'out-doc-type',
         'in-course': 'out-course',
         'in-code': 'out-code',
-        'in-prof-name': 'out-prof-name',
         'in-prof-desig': 'out-prof-desig',
         'in-prof-dept': 'out-prof-dept',
         'in-student-name': 'out-student-name',
         'in-student-id': 'out-student-id',
         'in-assign-title': 'out-assign-title'
     };
+
+    const rawProfName = document.getElementById('in-prof-name').value;
+    document.getElementById('out-prof-name').innerText = rawProfName.split(' (')[0] || "...";
 
     for (let inputId in mapping) {
         const val = document.getElementById(inputId).value;
