@@ -10,32 +10,42 @@
 
     <div class="no-print">
         <div class="form-container">
-            <h1>Automated Cover Page Maker</h1>
+            <h1>Cover Page Maker @Vlackfie</h1>
             
             <div class="form-grid">
-                <div class="section-label">1. Select Professor</div>
-                <select id="in-prof-name" onchange="autoFillAll()">
-                    <option value="">Select Professor</option>
-                    <option value="Dr. Rezaul Haque">Dr. Rezaul Haque</option>
-                    <option value="Prof. Md. Anwar Hussain">Prof. Md. Anwar Hussain</option>
+                <div class="section-label">1. Document Heading</div>
+                <select id="in-doc-type" onchange="updatePreview()">
+                    <option value="Assignment">Assignment</option>
+                    <option value="Lab Report">Lab Report</option>
                 </select>
 
-                <div class="section-label">2. Assignment Title (Optional)</div>
+                <div class="section-label">2. Select Professor</div>
+                <select id="in-prof-name" onchange="autoFillAll()">
+                    <option value="">Select Professor</option>
+                    <option value="Abu Jafar Md Jakaria">Abu Jafar Md Jakaria</option>
+                    <option value="Samia Rahman Rima (DBMS)">Samia Rahman Rima (DBMS)</option>
+                    <option value="Samia Rahman Rima (DBMS Lab)">Samia Rahman Rima (DBMS Lab)</option>
+                    <option value="Sadman Sakib (Microprocessor)">Sadman Sakib (Microprocessor)</option>
+                    <option value="Sadman Sakib (Microprocessor Lab)">Sadman Sakib (Microprocessor Lab)</option>
+                    <option value="Farhana Akter">Farhana Akter</option>
+                </select>
+
+                <div class="section-label">3. Specific Title (Optional)</div>
                 <div class="checkbox-wrapper">
                     <input type="checkbox" id="check-title" onchange="toggleTitleInput()">
-                    <label for="check-title">Add Specific Title?</label>
+                    <label for="check-title">Add Specific Title/Topic?</label>
                 </div>
                 <input type="text" id="in-assign-title" placeholder="e.g. Impact of AI on Business" oninput="updatePreview()" style="display: none;">
 
-                <div class="section-label">3. Auto-filled Details</div>
+                <div class="section-label">4. Auto-filled Details</div>
                 <input type="text" id="in-course" placeholder="Course Title" readonly>
                 <input type="text" id="in-code" placeholder="Course Code" readonly>
                 <input type="text" id="in-prof-desig" placeholder="Designation" readonly>
                 <input type="text" id="in-prof-dept" placeholder="Department" readonly>
 
-                <div class="section-label">4. Student Details</div>
+                <div class="section-label">5. Student Details</div>
                 <input type="text" id="in-student-name" placeholder="Your Name" oninput="updatePreview()">
-                <input type="text" id="in-student-id" placeholder="Student ID" oninput="updatePreview()">
+                <input type="text" id="in-student-id" placeholder="Student ID: 242-115-079" oninput="updatePreview()">
                 <input type="date" id="in-date" oninput="updatePreview()">
             </div>
             
@@ -49,7 +59,7 @@
         </div>
 
         <div class="title-group">
-            <h2 class="main-title">Assignment</h2>
+            <h2 class="main-title"><span id="out-doc-type">Assignment</span></h2>
             <h3 id="out-assign-title" class="sub-assignment-title"></h3>
         </div>
 
@@ -71,6 +81,7 @@
                 <h3 class="sub-label">Submitted by:</h3>
                 <p class="bold-text">Name: <span id="out-student-name">...</span></p>
                 <p class="bold-text">ID: <span id="out-student-id">...</span></p>
+                <p>Section: B</p>
                 <p>Batch: 61<sup>st</sup></p>
                 <p>Department of Computer Science and Engineering</p>
                 <p>Metropolitan University</p>
